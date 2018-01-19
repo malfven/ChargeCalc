@@ -29,5 +29,6 @@ namespace WpfApp1
         }
 
         public MainViewModel MainViewModel { get => mMainViewModel; set => mMainViewModel = value; }
+              
     }
 }
