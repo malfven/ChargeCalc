@@ -13,7 +13,7 @@ namespace WpfApp1
 
         public MainViewModel()
         {
-            Test = "kaka";
+            Test = "kaka2";
         }
 
         public string Test { get => mTest; set => mTest = value; }
