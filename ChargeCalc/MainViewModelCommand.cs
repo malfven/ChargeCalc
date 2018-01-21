@@ -33,7 +33,7 @@ namespace WpfApp1
             }
         }
 
-        private void Connect()
+        public void Connect()
         {
             int kaka;
             kaka = 1 + 2;

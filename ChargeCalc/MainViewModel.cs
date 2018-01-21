@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ using System.Windows.Input;
 namespace WpfApp1
 {
     
-    public partial class MainViewModel
+    public partial class MainViewModel : BaseViewModel
     {
         private string mTest;
         
@@ -20,6 +21,9 @@ namespace WpfApp1
 
         public string Test { get => mTest; set => mTest = value; }
 
-       
+
+
     }
+
+
 }
