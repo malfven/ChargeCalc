@@ -1,6 +1,7 @@
 ﻿using Ingres.Client;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,8 @@ namespace SQLRepository
 {
     public class IngresServer
     {
-        private IngresDatabase[] m_databaser = null;
+        //private IngresDatabase[] m_databaser = null;
+        private ObservableCollection<IngresDatabase> m_DatabaseList;
         private string m_descr;
         private string m_name;
         private string m_passw;
@@ -28,6 +30,9 @@ namespace SQLRepository
             m_user = GetXMLText(serversetup, "User");
             m_passw = GetXMLText(serversetup, "Password");
         }
+
+
+        public ObservableCollection<IngresDatabase> DatabaseList { get => m_DatabaseList; set => m_DatabaseList = value; }
 
         /// <summary>
         ///
@@ -53,10 +58,10 @@ namespace SQLRepository
                 DataTable dt = new DataTable();
                 i_da.Fill(dt);
                 i_con.Close();
-                m_databaser = new IngresDatabase[dt.Rows.Count];
-                int i = 0;
+                
+                m_DatabaseList = new ObservableCollection<IngresDatabase>();
                 foreach (DataRow r in dt.Rows)
-                    m_databaser[i++] = new IngresDatabase(this, r);
+                    m_DatabaseList.Add(new IngresDatabase(this, r));
             }
             catch (IngresException fel)
             {
@@ -92,7 +97,6 @@ namespace SQLRepository
             }
             return s;
         }
-
-        public IngresDatabase[] DataBases { get { return m_databaser; } }
+                
     }
 }

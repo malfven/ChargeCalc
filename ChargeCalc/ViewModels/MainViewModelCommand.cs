@@ -1,4 +1,6 @@
-﻿using Library;
+﻿using Ingres.Client;
+using Library;
+using SQLRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,9 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
+
 namespace ChargeCalc.ViewModels
 {
-    public partial class MainViewModel
+    public partial class MainViewModel        
     {
         public void SetupCommands()
         {
@@ -35,8 +38,13 @@ namespace ChargeCalc.ViewModels
 
         public void Connect()
         {
-            int kaka;
-            kaka = 1 + 2;
+            if (SelectedServer != null)
+            {                
+                IngresConnection i_con = new IngresConnection(SelectedDatabase.ConnectString);
+                i_con.Open();
+                i_con.Close();
+               
+            }
         }
 
         #endregion // Command Properties

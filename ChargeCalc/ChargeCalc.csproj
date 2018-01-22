@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ingres.Client, Version=2.1.0.0, Culture=neutral, PublicKeyToken=363043b363d069c5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Actian\Ingres .NET Data Provider\v2.1\Ingres.Client.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -101,6 +105,10 @@
     <ProjectReference Include="..\Library\Library.csproj">
       <Project>{a50539be-8536-487e-bd0b-7b00c574ad51}</Project>
       <Name>Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SQLRepository\SQLRepository.csproj">
+      <Project>{e2719978-a7f8-42a9-b226-a0c3faaeb627}</Project>
+      <Name>SQLRepository</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
