@@ -20,11 +20,17 @@
             <StackPanel Orientation="Horizontal">
                 <ComboBox ItemsSource="{Binding ServerList}" SelectedItem="{Binding SelectedServer}" SelectedIndex="0" Margin="20,0,0,0" Height="30" Width="160"></ComboBox>
                 <ComboBox ItemsSource="{Binding SelectedServer.DatabaseList}" SelectedItem="{Binding SelectedDatabase}" SelectedIndex="0" Margin="20,0,0,0" Height="30" Width="160"></ComboBox>
-                <Button Content="Connect" Height="30" Width="80" Margin="20,0,0,0" Command="{Binding ConnectCommand}"></Button>
+                <Button Content="Connect" Height="30" Width="80" Margin="20,0,0,0" Command="{Binding ConnectCommand}" ></Button>
             </StackPanel>
         </Grid>        
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-          
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left">
+            <DataGrid ItemsSource="{Binding Tables.Tables}" Width="600">
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="Tabellnamn" Binding="{Binding name}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Ägare" Binding="{Binding owner}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>            
+            
             <!--<Button Content="{Binding Test}" Height="30" Width="80"></Button>-->
         </StackPanel>
         

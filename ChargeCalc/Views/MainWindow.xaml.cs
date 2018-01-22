@@ -30,6 +30,7 @@ namespace ChargeCalc.Views
         }
 
         public MainViewModel MainViewModel { get => mMainViewModel; set => mMainViewModel = value; }
-              
+
+       
     }
 }

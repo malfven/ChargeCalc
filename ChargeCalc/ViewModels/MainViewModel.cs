@@ -21,6 +21,7 @@ namespace ChargeCalc.ViewModels
         private ObservableCollection<IngresServer> m_ServerList;
         private IngresServer m_SelectedServer;
         private IngresDatabase m_SelectedDatabase;
+        private IngresTables m_Table;
 
         //private IngresServer[] m_srvlist = null;
               
@@ -62,9 +63,16 @@ namespace ChargeCalc.ViewModels
             set
             {
                 m_SelectedDatabase = value;
+                m_Table = new IngresTables();
+                m_Table.FillTable(m_SelectedDatabase.ConnectString);               
+
                 NotifyPropertyChanged("SelectedDatabase");
+                NotifyPropertyChanged("Tables");
             }
         }
+
+        public IngresTables Tables { get => m_Table; set => m_Table = value; }
+
         public string Test { get => mTest; set => mTest = value; }
         public ObservableCollection<IngresServer> ServerList { get => m_ServerList; set => m_ServerList = value; }
         #endregion
